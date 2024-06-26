@@ -1,8 +1,12 @@
 const { Square, Shape } = require("./lib/shapes.js");
 
-describe("suite", () => {
-  describe("class", () => {
-    it("method/test", () => {});
+describe("Shapes", () => {
+  describe("Shape", () => {
+    it("render()", () => {
+      let newShape = new Shape(5, 5, "red");
+      console.log(newShape);
+      expect(1 == 2);
+    });
   });
 });
 
@@ -23,7 +27,3 @@ describe("suite", () => {
 //       expect(blogpost).toBeInstanceOf(BlogPost);
 //     });
 //   });
-
-
-let newShape = new Square(5, 5, 5, 5, "red");
-console.log(newShape);
