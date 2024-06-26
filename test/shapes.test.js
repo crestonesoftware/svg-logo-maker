@@ -29,6 +29,14 @@ describe("Shapes", () => {
       const expectedResult = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">foo</svg>`;
       expect(newShape.renderSVGContainer("foo")).toEqual(expectedResult);
     });
+    it("writeToFile() - throws error b/c render is called from superclass", () => {
+      const newShape = new Shape(50, 50, "blue");
+      const filePath = "./tmp/newShape.html";
+
+      expect(() => newShape.writeToFile(filePath)).toThrow(
+        "Call render() from a child class"
+      );
+    });
   });
   // it("writeToFile() - file exists", () => {
   //   const newShape = new Shape(50, 50, "blue");
@@ -45,13 +53,6 @@ describe("Shapes", () => {
   //   const content = fs.readFileSync(filePath, "utf8");
   //   expect(content).toEqual(fileContents);
   // });
-
-  it("writeToFile() - throws error when called from superclass", () => {
-    const newShape = new Shape(50, 50, "blue");
-    const filePath = "./tmp/newShape.html";
-
-    expect(() => newShape.writeToFile(filePath)).toThrow();
-  });
 });
 
 // describe('suite', () => {

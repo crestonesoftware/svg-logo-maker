@@ -33,6 +33,13 @@ describe("Shapes", () => {
       expect(newSquare.renderInContainer()).toEqual(expectedData);
     });
 
+    it("writeToFile()", () => {
+      const newSquare = new Square(50, 50, 100, 100, "green");
+      const filePath = "./tmp/newSquare.html";
+
+      expect(() => newSquare.writeToFile(filePath)).toThrow();
+    });
+
     // // it("writeToFile() - file exists", () => {
     // //   const newShape = new Shape(50, 50, "blue");
     // //   const filePath = "./tmp/newShape.html";
