@@ -2,7 +2,7 @@ const { Square, Shape } = require("../lib/shapes");
 const fs = require("fs");
 
 describe("Shapes", () => {
-  describe("Squar", () => {
+  describe("Square", () => {
     // tests constructor
     it("constructor(x,y, width,height, fillColor)", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
