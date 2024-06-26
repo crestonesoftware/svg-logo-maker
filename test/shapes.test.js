@@ -25,20 +25,27 @@ describe("Shapes", () => {
       );
     });
 
-    it("writeToFile() - file exists", () => {
-      const newShape = new Shape(50, 50, "blue");
-      const filePath = "./tmp/newShape.html";
-      newShape.writeToFile(filePath);
-      expect(fs.existsSync(filePath));
-    });
+    // it("writeToFile() - file exists", () => {
+    //   const newShape = new Shape(50, 50, "blue");
+    //   const filePath = "./tmp/newShape.html";
+    //   newShape.writeToFile(filePath);
+    //   expect(fs.existsSync(filePath));
+    // });
 
-    it("writeToFile() - file contents written", () => {
+    // it("writeToFile() - file contents written", () => {
+    //   const newShape = new Shape(50, 50, "blue");
+    //   const filePath = "./tmp/newShape.html";
+    //   const fileContents = newShape.getData();
+    //   newShape.writeToFile(filePath);
+    //   const content = fs.readFileSync(filePath, "utf8");
+    //   expect(content).toEqual(fileContents);
+    // });
+
+    it("writeToFile() - throws error when called from superclass", () => {
       const newShape = new Shape(50, 50, "blue");
       const filePath = "./tmp/newShape.html";
-      const fileContents = newShape.getData();
-      newShape.writeToFile(filePath);
-      const content = fs.readFileSync(filePath, "utf8");
-      expect(content).toEqual(fileContents);
+
+      expect(() => newShape.writeToFile(filePath)).toThrow();
     });
   });
 });
