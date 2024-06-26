@@ -11,8 +11,8 @@ describe("Shapes", () => {
       expect(newSquare.getData()).toEqual(expectedData);
     });
 
-    // tests getData(). Is a copy of the constrctor test. 
-    // The duplication seems a little silly, but I'm just 
+    // tests getData(). Is a copy of the constrctor test.
+    // The duplication seems a little silly, but I'm just
     // iterating through a list of things to test!
     it("getData()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
@@ -21,12 +21,12 @@ describe("Shapes", () => {
       expect(newSquare.getData()).toEqual(expectedData);
     });
 
-    // it("render()", () => {
-    //   const newShape = new Shape(50, 50, "blue");
-    //   expect(() => newShape.render()).toThrow(
-    //     "Call render() from a child class"
-    //   );
-    // });
+    it("render()", () => {
+      const newSquare = new Square(50, 50, 100, 100, "green");
+      const expectedData = "";
+      console.log("newSquare.render() " + newSquare.render());
+      expect(newSquare.render()).toEqual(expectedData);
+    });
 
     // // it("writeToFile() - file exists", () => {
     // //   const newShape = new Shape(50, 50, "blue");
