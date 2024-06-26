@@ -1,4 +1,4 @@
-const { Square, Shape } = require("./lib/shapes.js");
+const { Square, Shape } = require("../lib/shapes");
 
 describe("Shapes", () => {
   describe("Shape", () => {
