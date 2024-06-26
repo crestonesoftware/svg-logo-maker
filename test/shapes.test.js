@@ -27,8 +27,15 @@ describe("Shapes", () => {
 
     it("writeToFile() - file exists", () => {
       const newShape = new Shape(50, 50, "blue");
-      const filePath = "../tmp/newshape.html";
+      const filePath = "./tmp/newShape.html";
       newShape.writeToFile(filePath);
+      expect(fs.existsSync(filePath));
+    });
+
+    it("writeToFile() - file contents written", () => {
+      const newShape = new Shape(50, 50, "blue");
+      const filePath = "./tmp/newShape.html";
+      newShape.writeToFile(filePath, newShape.getData());
       expect(fs.existsSync(filePath));
     });
   });
