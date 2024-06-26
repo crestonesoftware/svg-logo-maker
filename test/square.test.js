@@ -36,8 +36,12 @@ describe("Shapes", () => {
     it("writeToFile()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
       const filePath = "./tmp/newSquare.html";
+      const expectedData = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
 
-      expect(() => newSquare.writeToFile(filePath)).toThrow();
+      console.log(fs.readFileSync(filePath, "utf8"));
+
+      expect(() => fs.existsSync(filePath));
+      expect(fs.readFileSync(filePath, "utf8")).toEqual(expectedData);
     });
 
     // // it("writeToFile() - file exists", () => {
