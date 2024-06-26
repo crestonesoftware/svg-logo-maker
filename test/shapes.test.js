@@ -7,7 +7,6 @@ describe("Shapes", () => {
       const newShape = new Shape(5, 5, "red");
       const expectedData =
         "width: 5, height: 5, fillColor: red, xmlns: http://www.w3.org/2000/svg";
-      console.log(newShape.getData());
       expect(newShape.getData()).toEqual(expectedData);
     });
 
@@ -25,28 +24,35 @@ describe("Shapes", () => {
       );
     });
 
-    // it("writeToFile() - file exists", () => {
-    //   const newShape = new Shape(50, 50, "blue");
-    //   const filePath = "./tmp/newShape.html";
-    //   newShape.writeToFile(filePath);
-    //   expect(fs.existsSync(filePath));
-    // });
-
-    // it("writeToFile() - file contents written", () => {
-    //   const newShape = new Shape(50, 50, "blue");
-    //   const filePath = "./tmp/newShape.html";
-    //   const fileContents = newShape.getData();
-    //   newShape.writeToFile(filePath);
-    //   const content = fs.readFileSync(filePath, "utf8");
-    //   expect(content).toEqual(fileContents);
-    // });
-
-    it("writeToFile() - throws error when called from superclass", () => {
+    it("renderSVGContainer()", () => {
       const newShape = new Shape(50, 50, "blue");
-      const filePath = "./tmp/newShape.html";
-
-      expect(() => newShape.writeToFile(filePath)).toThrow();
+      const expectedResult = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+      foo
+      </svg>`;
+      expect(newShape.renderSVGContainer("foo")).toEqual(expectedResult);
     });
+  });
+  // it("writeToFile() - file exists", () => {
+  //   const newShape = new Shape(50, 50, "blue");
+  //   const filePath = "./tmp/newShape.html";
+  //   newShape.writeToFile(filePath);
+  //   expect(fs.existsSync(filePath));
+  // });
+
+  // it("writeToFile() - file contents written", () => {
+  //   const newShape = new Shape(50, 50, "blue");
+  //   const filePath = "./tmp/newShape.html";
+  //   const fileContents = newShape.getData();
+  //   newShape.writeToFile(filePath);
+  //   const content = fs.readFileSync(filePath, "utf8");
+  //   expect(content).toEqual(fileContents);
+  // });
+
+  it("writeToFile() - throws error when called from superclass", () => {
+    const newShape = new Shape(50, 50, "blue");
+    const filePath = "./tmp/newShape.html";
+
+    expect(() => newShape.writeToFile(filePath)).toThrow();
   });
 });
 

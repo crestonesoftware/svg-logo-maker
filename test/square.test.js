@@ -21,12 +21,11 @@ describe("Shapes", () => {
       expect(newSquare.getData()).toEqual(expectedData);
     });
 
-    it("render()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green");
-      const expectedData = "";
-      console.log("newSquare.render() " + newSquare.render());
-      expect(newSquare.render()).toEqual(expectedData);
-    });
+    // it("render()", () => {
+    //   const newSquare = new Square(50, 50, 100, 100, "green");
+    //   const expectedData = ""; //TODO real value
+    //   expect(newSquare.render()).toEqual(expectedData);
+    // });
 
     // // it("writeToFile() - file exists", () => {
     // //   const newShape = new Shape(50, 50, "blue");
