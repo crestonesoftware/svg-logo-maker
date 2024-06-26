@@ -35,8 +35,10 @@ describe("Shapes", () => {
     it("writeToFile() - file contents written", () => {
       const newShape = new Shape(50, 50, "blue");
       const filePath = "./tmp/newShape.html";
-      newShape.writeToFile(filePath, newShape.getData());
-      expect(fs.existsSync(filePath));
+      const fileContents = newShape.getData();
+      newShape.writeToFile(filePath);
+      const content = fs.readFileSync(filePath, "utf8");
+      expect(content).toEqual(fileContents);
     });
   });
 });
