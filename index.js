@@ -1,4 +1,19 @@
-const { Square, Shape } = require("./lib/shapes.js");
+// DEPENDENCIES
+const inquirer = require("inquirer");
+const questions = require("./lib/inquirer-questions.js");
 
-let newShape = new Square(5, 5, 5, 5, "red");
-console.log(newShape);
+// DATA
+
+// FUNCTIONS
+
+async function generateLogo() {
+  console.log("generateLogo");
+  const answers = await inquirer.prompt(questions);
+  
+}
+
+const init = () => {
+  generateLogo();
+};
+// INIT
+init();
