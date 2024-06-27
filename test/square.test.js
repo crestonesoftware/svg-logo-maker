@@ -20,14 +20,14 @@ describe("Shapes", () => {
 
     it("renderInContainer()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
-      const expectedData = `<svg width="${SVG_CONTAINER.width}" height="${SVG_CONTAINER.height}" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>${MAGIC_SUFFIX}`;
+      const expectedData = `<svg width="${SVG_CONTAINER.width}" height="${SVG_CONTAINER.height}" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
       expect(newSquare.renderInContainer()).toEqual(expectedData);
     });
 
     it("writeToFile()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
       const filePath = "./tmp/newSquare.html";
-      const expectedData = `<svg width="${SVG_CONTAINER.width}" height="${SVG_CONTAINER.height}" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>${MAGIC_SUFFIX}`;
+      const expectedData = `<svg width="${SVG_CONTAINER.width}" height="${SVG_CONTAINER.height}" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
 
       newSquare.writeToFile(filePath);
       expect(() => fs.existsSync(filePath));
