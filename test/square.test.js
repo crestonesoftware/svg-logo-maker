@@ -1,20 +1,11 @@
 const { Square, Shape } = require("../lib/shapes");
+const { SVG_CONTAINER, MAGIC_SUFFIX } = require("../lib/constants");
 const fs = require("fs");
 
 describe("Shapes", () => {
   describe("Square", () => {
     // tests constructor
-    it("constructor(x,y, width,height, fillColor)", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green");
-      const expectedData =
-        "x: 50, y: 50, width: 100, height: 100, fillColor: green, xmlns: http://www.w3.org/2000/svg";
-      expect(newSquare.getData()).toEqual(expectedData);
-    });
-
-    // tests getData(). Is a copy of the constrctor test.
-    // The duplication seems a little silly, but I'm just
-    // iterating through a list of things to test!
-    it("getData()", () => {
+    it("constructor and getData()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
       const expectedData =
         "x: 50, y: 50, width: 100, height: 100, fillColor: green, xmlns: http://www.w3.org/2000/svg";
@@ -29,50 +20,42 @@ describe("Shapes", () => {
 
     it("renderInContainer()", () => {
       const newSquare = new Square(50, 50, 100, 100, "green");
-      const expectedData = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
+      const expectedData = `<svg width="${SVG_CONTAINER.width}" height="${SVG_CONTAINER.height}" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>${MAGIC_SUFFIX}`;
       expect(newSquare.renderInContainer()).toEqual(expectedData);
     });
-
-    it("writeToFile()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green");
-      const filePath = "./tmp/newSquare.html";
-      const expectedData = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
-
-      console.log(fs.readFileSync(filePath, "utf8"));
-
-      expect(() => fs.existsSync(filePath));
-      expect(fs.readFileSync(filePath, "utf8")).toEqual(expectedData);
-    });
-
-    // // it("writeToFile() - file exists", () => {
-    // //   const newShape = new Shape(50, 50, "blue");
-    // //   const filePath = "./tmp/newShape.html";
-    // //   newShape.writeToFile(filePath);
-    // //   expect(fs.existsSync(filePath));
-    // // });
-
-    // // it("writeToFile() - file contents written", () => {
-    // //   const newShape = new Shape(50, 50, "blue");
-    // //   const filePath = "./tmp/newShape.html";
-    // //   const fileContents = newShape.getData();
-    // //   newShape.writeToFile(filePath);
-    // //   const content = fs.readFileSync(filePath, "utf8");
-    // //   expect(content).toEqual(fileContents);
-    // // });
-
-    // it("writeToFile() - throws error when called from superclass", () => {
-    //   const newShape = new Shape(50, 50, "blue");
-    //   const filePath = "./tmp/newShape.html";
-
-    //   expect(() => newShape.writeToFile(filePath)).toThrow();
-    // });
   });
 });
 
-// describe('suite', () => {
-//     describe('class', () => {
-//         it('method/test', ()=> {
+// it("writeToFile()", () => {
+//   const newSquare = new Square(50, 50, 100, 100, "green");
+//   const filePath = "./tmp/newSquare.html";
+//   const expectedData = `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="50" width="100" height="100" fill="green" /></svg>`;
 
-//         });
-//     });
+//   console.log(fs.readFileSync(filePath, "utf8"));
+
+//   expect(() => fs.existsSync(filePath));
+//   expect(fs.readFileSync(filePath, "utf8")).toEqual(expectedData);
+// });
+
+// // it("writeToFile() - file exists", () => {
+// //   const newShape = new Shape(50, 50, "blue");
+// //   const filePath = "./tmp/newShape.html";
+// //   newShape.writeToFile(filePath);
+// //   expect(fs.existsSync(filePath));
+// // });
+
+// // it("writeToFile() - file contents written", () => {
+// //   const newShape = new Shape(50, 50, "blue");
+// //   const filePath = "./tmp/newShape.html";
+// //   const fileContents = newShape.getData();
+// //   newShape.writeToFile(filePath);
+// //   const content = fs.readFileSync(filePath, "utf8");
+// //   expect(content).toEqual(fileContents);
+// // });
+
+// it("writeToFile() - throws error when called from superclass", () => {
+//   const newShape = new Shape(50, 50, "blue");
+//   const filePath = "./tmp/newShape.html";
+
+//   expect(() => newShape.writeToFile(filePath)).toThrow();
 // });
