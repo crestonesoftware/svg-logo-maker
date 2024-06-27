@@ -15,9 +15,13 @@ async function generateLogo() {
 
   switch (shape) {
     case "Square":
-      logo = new shapes.Square(100, 100, 100, 100, color);
+      logo = new shapes.Square(100, 100, 100, 100, color, text);
+      console.log(logo);
       logo.writeToFile(constants.LOGO_FILE);
   }
+  console.log(
+    `generated a ${logo.fillColor} ${logo.constructor.name} with text ${logo.text}`
+  );
 }
 
 const init = () => {
