@@ -1,5 +1,6 @@
 const { Square, Shape } = require("../lib/shapes");
-const { SVG_CONTAINER, MAGIC_SUFFIX } = require("../lib/constants");
+//const { SVG_CONTAINER, MAGIC_SUFFIX } = require("../lib/constants");
+const { SVG_CONTAINER } = require("../lib/constants");
 const fs = require("fs");
 
 describe("Shapes", () => {
