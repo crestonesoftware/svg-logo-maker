@@ -20,7 +20,7 @@ describe("Shapes", () => {
 
     it("renderSVGContainer()", () => {
       const newShape = new Shape("blue", "TCG");
-      const expectedResult = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">foo</svg>`;
+      const expectedResult = `<html><body><svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">foo</svg><p></p></body></html>`;
       expect(newShape.renderSVGContainer("foo")).toEqual(expectedResult);
     });
     it("writeToFile() - throws error b/c render is called from superclass", () => {
