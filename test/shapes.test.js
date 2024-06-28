@@ -1,5 +1,5 @@
 const { Square, Shape } = require("../lib/shapes");
-const { HTML_WRAPPER, SVG_CONTAINER } = require("../lib/constants.js");
+const { SVG_CONTAINER } = require("../lib/constants.js");
 const fs = require("fs");
 
 describe("Shapes", () => {
