@@ -1,5 +1,5 @@
 const { Square, Shape } = require("../lib/shapes");
-//const { MAGIC_SUFFIX } = require("../lib/constants.js");
+const { HTML_WRAPPER } = require("../lib/constants.js");
 const fs = require("fs");
 
 describe("Shapes", () => {
@@ -20,7 +20,7 @@ describe("Shapes", () => {
 
     it("renderSVGContainer()", () => {
       const newShape = new Shape("blue", "TCG");
-      const expectedResult = `<html><body><svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">foo</svg><p></p></body></html>`;
+      const expectedResult = `${HTML_WRAPPER.open_tags}<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">foo</svg>${HTML_WRAPPER.close_tags}`;
       expect(newShape.renderSVGContainer("foo")).toEqual(expectedResult);
     });
     it("writeToFile() - throws error b/c render is called from superclass", () => {
