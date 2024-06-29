@@ -3,32 +3,36 @@ const { Square, Shape } = require("../lib/shapes");
 const { SVG_CONTAINER } = require("../lib/constants");
 const fs = require("fs");
 
+const squareWidth = 200;
+const squareHeight = 250;
+
 describe("Shapes", () => {
   describe("Square", () => {
     // tests constructor
     it("constructor and getData()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green", "TCG");
-      const expectedData =
-        "x: 50, y: 50, width: 100, height: 100, fillColor: green, xmlns: http://www.w3.org/2000/svg";
+      const newSquare = new Square("green", "TCG", "white");
+      const expectedData = `x: 0, y: 0, width: ${squareWidth}, height: ${squareHeight}, fillColor: green, xmlns: http://www.w3.org/2000/svg`;
       expect(newSquare.getData()).toEqual(expectedData);
     });
 
     it("render()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green", "TCG");
-      const expectedData = `<rect x="50" y="50" width="100" height="100" fill="green" />`;
+      const newSquare = new Square("green", "TCG", "white");
+      const expectedData = `<rect x="0" y="0" width="${squareWidth}" height="${squareHeight}" fill="green" />`;
       expect(newSquare.render()).toEqual(expectedData);
     });
 
     it("renderInContainer()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green", "TCG");
-      const expectedData = `${SVG_CONTAINER.open_tags}<rect x="50" y="50" width="100" height="100" fill="green" />${SVG_CONTAINER.close_tags}`;
+      const newSquare = new Square("green", "TCG", "white");
+      const expectedData = `${SVG_CONTAINER.open_tags}<rect x="0" y="0" width="${squareWidth}" height="${squareHeight}" fill="green" />
+        <text x="45" y="145" fill="white" font-size="60">TCG</text>${SVG_CONTAINER.close_tags}`;
       expect(newSquare.renderInContainer()).toEqual(expectedData);
     });
 
     it("writeToFile()", () => {
-      const newSquare = new Square(50, 50, 100, 100, "green", "TCG");
+      const newSquare = new Square("green", "TCG", "white");
       const filePath = "./tmp/newSquare.html";
-      const expectedData = `${SVG_CONTAINER.open_tags}<rect x="50" y="50" width="100" height="100" fill="green" />${SVG_CONTAINER.close_tags}`;
+      const expectedData = `${SVG_CONTAINER.open_tags}<rect x="0" y="0" width="${squareWidth}" height="${squareHeight}" fill="green" />
+        <text x="45" y="145" fill="white" font-size="60">TCG</text>${SVG_CONTAINER.close_tags}`;
 
       newSquare.writeToFile(filePath);
       expect(() => fs.existsSync(filePath));
