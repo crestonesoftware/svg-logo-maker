@@ -2,6 +2,8 @@ const { Square, Shape } = require("../lib/shapes");
 const { SVG_CONTAINER } = require("../lib/constants.js");
 const fs = require("fs");
 
+const overrideRenderError = "render() must be overridden by a subclass";
+
 describe("Shapes", () => {
   describe("Shape", () => {
     it("constructor and getData()", () => {
@@ -12,24 +14,18 @@ describe("Shapes", () => {
 
     it("render()", () => {
       const newShape = new Shape("blue", "TCG");
-      expect(() => newShape.render()).toThrow(
-        "Call render() from a child class"
-      );
+      expect(() => newShape.render()).toThrow(overrideRenderError);
     });
 
     it("renderLogo()", () => {
       const newShape = new Shape("blue", "TCG");
-      expect(() => newShape.renderLogo()).toThrow(
-        "Call render() from a child class"
-      );
+      expect(() => newShape.renderLogo()).toThrow(overrideRenderError);
     });
     it("writeToFile() - throws error b/c render is called from superclass", () => {
       const newShape = new Shape("blue", "TCG");
       const filePath = "./tmp/newShape.html";
 
-      expect(() => newShape.writeToFile(filePath)).toThrow(
-        "Call render() from a child class"
-      );
+      expect(() => newShape.writeToFile(filePath)).toThrow(overrideRenderError);
     });
   });
 });
