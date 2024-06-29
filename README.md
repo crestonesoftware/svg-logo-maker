@@ -7,6 +7,7 @@ this project generates svg logos
 - with choice of shape fill color and text color
 
 Video Demonstration https://youtu.be/i1eAWP6j0PE
+
 GitHub Repo https://github.com/crestonesoftware/svg-logo-maker
 ## <a name="Table of Contents"></a>Table of Contents
 - [Description](#Description)
