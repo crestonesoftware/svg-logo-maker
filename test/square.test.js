@@ -3,7 +3,7 @@ const { Square, Shape } = require("../lib/shapes");
 const { SVG_CONTAINER } = require("../lib/constants");
 const fs = require("fs");
 
-const squareWidth = 200;
+const squareWidth = 250;
 const squareHeight = 250;
 
 describe("Shapes", () => {
