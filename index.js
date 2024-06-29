@@ -10,12 +10,12 @@ const constants = require("./lib/constants.js");
 
 async function generateLogo() {
   const answers = await inquirer.prompt(questions);
-  const { shape, text, color } = answers;
+  const { shape, text, color, textColor } = answers;
   let logo = "";
 
   switch (shape) {
     case "Square":
-      logo = new shapes.Square(0, 0, 200, 250, color, text);
+      logo = new shapes.Square(0, 0, 200, 250, color, text, textColor);
       console.log(logo);
       logo.writeToFile(constants.LOGO_FILE);
   }
