@@ -21,10 +21,13 @@ describe("Shapes", () => {
     it("renderSVGContainer()", () => {
       const newShape = new Shape("blue", "TCG");
       const shape_placeholder = "foo";
-      const expectedResult = `${SVG_CONTAINER.open_tags}${shape_placeholder}${SVG_CONTAINER.close_tags}`;
-      expect(newShape.renderSVGContainer(shape_placeholder)).toEqual(
-        expectedResult
-      );
+      const textElement = `    <text x="45" y="145" fill="undefined" font-size="60">TCG</text>`;
+
+      const expectedResult = `${SVG_CONTAINER.open_tags}${shape_placeholder}
+        <text x="45" y="145" fill="undefined" font-size="60">TCG</text>${SVG_CONTAINER.close_tags}`;
+      expect(
+        newShape.renderSVGContainer(shape_placeholder, textElement)
+      ).toEqual(expectedResult);
     });
     it("writeToFile() - throws error b/c render is called from superclass", () => {
       const newShape = new Shape("blue", "TCG");
