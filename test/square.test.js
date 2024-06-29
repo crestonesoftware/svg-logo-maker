@@ -21,11 +21,14 @@ describe("Shapes", () => {
       expect(newSquare.render()).toEqual(expectedData);
     });
 
-    it("renderInContainer()", () => {
+    it("renderLogo()", () => {
       const newSquare = new Square("green", "TCG", "white");
       const expectedData = `${SVG_CONTAINER.open_tags}<rect x="0" y="0" width="${squareWidth}" height="${squareHeight}" fill="green" />
         <text x="45" y="145" fill="white" font-size="60">TCG</text>${SVG_CONTAINER.close_tags}`;
-      expect(newSquare.renderInContainer()).toEqual(expectedData);
+      expect(
+        //newSquare.renderLogo(newSquare.render(), newSquare.renderText())
+        newSquare.renderLogo()
+      ).toEqual(expectedData);
     });
 
     it("writeToFile()", () => {

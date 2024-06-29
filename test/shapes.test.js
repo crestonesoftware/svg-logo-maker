@@ -17,16 +17,11 @@ describe("Shapes", () => {
       );
     });
 
-    it("renderSVGContainer()", () => {
+    it("renderLogo()", () => {
       const newShape = new Shape("blue", "TCG");
-      const shape_placeholder = "foo";
-      const textElement = `    <text x="45" y="145" fill="undefined" font-size="60">TCG</text>`;
-
-      const expectedResult = `${SVG_CONTAINER.open_tags}${shape_placeholder}
-        <text x="45" y="145" fill="undefined" font-size="60">TCG</text>${SVG_CONTAINER.close_tags}`;
-      expect(
-        newShape.renderSVGContainer(shape_placeholder, textElement)
-      ).toEqual(expectedResult);
+      expect(() => newShape.renderLogo()).toThrow(
+        "Call render() from a child class"
+      );
     });
     it("writeToFile() - throws error b/c render is called from superclass", () => {
       const newShape = new Shape("blue", "TCG");
