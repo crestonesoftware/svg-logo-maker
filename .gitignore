@@ -1,6 +1,6 @@
 # output from unit tests and running the app
 tmp/
-output/
+output/*
 
 # Logs
 logs
