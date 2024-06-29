@@ -17,9 +17,9 @@ async function generateLogo() {
   switch (shape) {
     case "Square":
       logo = new shapes.Square(color, text, textColor);
-      logoFile = constants.LOGO_FILE.squareLogoFile();
+      logoFile = constants.LOGO_FILE.square;
   }
-  logo.writeToFile(constants.LOGO_FILE.squareLogoFile());
+  logo.writeToFile(logoFile);
   console.log(`generated ${logoFile}`);
 }
 
