@@ -12,13 +12,15 @@ async function generateLogo() {
   const answers = await inquirer.prompt(questions);
   const { shape, text, color, textColor } = answers;
   let logo = "";
+  let logoFile = "";
 
   switch (shape) {
     case "Square":
-      logo = new shapes.Square(0, 0, 200, 250, color, text, textColor);
-      logo.writeToFile(constants.LOGO_FILE);
+      logo = new shapes.Square(color, text, textColor);
+      logoFile = constants.LOGO_FILE.squareLogoFile();
   }
-  console.log(`generated logo.svg`);
+  logo.writeToFile(constants.LOGO_FILE.squareLogoFile());
+  console.log(`generated ${logoFile}`);
 }
 
 const init = () => {
