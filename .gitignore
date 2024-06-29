@@ -1,5 +1,6 @@
-# tmp dir - output from unit tests
+# output from unit tests and running the app
 tmp/
+output/
 
 # Logs
 logs
