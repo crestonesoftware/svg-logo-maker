@@ -18,6 +18,11 @@ async function generateLogo() {
     case "Square":
       logo = new shapes.Square(color, text, textColor);
       logoFile = constants.LOGO_FILE.square;
+      break;
+    case "Circle": {
+      logo = new shapes.Circle(color, text, textColor);
+      logoFile = constants.LOGO_FILE.circle;
+    }
   }
   logo.writeToFile(logoFile);
   console.log(`generated ${logoFile}`);

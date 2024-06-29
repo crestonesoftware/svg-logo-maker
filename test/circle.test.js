@@ -8,7 +8,7 @@ const shapeColor = "yellow";
 const textColor = "gray";
 const logoText = "AQ";
 const circleElement = `<circle cx="100" cy="100" r="100" fill="${shapeColor}" />`;
-const textElement = `<text x="60" y="145" fill="${textColor}" font-size="60">${logoText}</text>`;
+const textElement = `<text x="60" y="120" fill="${textColor}" font-size="60">${logoText}</text>`;
 
 describe("Shapes", () => {
   describe("Circle", () => {
