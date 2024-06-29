@@ -1,0 +1,9 @@
+<html>
+    <body>
+      <svg width="300" height="200" overflow="visible" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="100" fill="yellow" />
+        <text x="60" y="120" fill="#afafaf" font-size="60">QC</text>
+      </svg>
+      <p></p>
+    </body>
+</html>
